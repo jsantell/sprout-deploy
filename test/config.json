@@ -1,0 +1,46 @@
+{
+  "port": 9999,
+  "AWSCredentials": {},
+  "Applications": [{
+    "ApplicationName": "api-service",
+    "Description": "My API Service",
+    "Environments": [{
+      "EnvironmentName": "api-service-dev",
+      "Description": "Dev environment for API Service",
+      "SolutionStackName": "64bit Amazon Linux 2014.09 v1.0.8 running Node.js",
+      "OptionSettings": [
+        { "Namespace": "aws:autoscaling:asg", "OptionName": "Availability Zones", "Value": "Any 1" },
+        { "Namespace": "aws:autoscaling:asg", "OptionName": "Cooldown", "Value": 360 },
+        { "Namespace": "aws:autoscaling:asg", "OptionName": "MinSize", "Value": 1 },
+        { "Namespace": "aws:autoscaling:asg", "OptionName": "MaxSize", "Value": 1 },
+        { "Namespace": "aws:elasticbeanstalk:application:environment",
+          "OptionName": "NODE_ENV", "Value": "development" }
+      ]
+    }, {
+      "EnvironmentName": "api-service-prod",
+      "Description": "Prod environment for API Service",
+      "SolutionStackName": "64bit Amazon Linux 2014.09 v1.0.8 running Node.js",
+      "OptionSettings": [
+        { "Namespace": "aws:autoscaling:asg", "OptionName": "MaxSize", "Value": 1 },
+        { "Namespace": "aws:elasticbeanstalk:application:environment",
+          "OptionName": "NODE_ENV", "Value": "development" }
+      ]
+    }]
+  }, {
+    "ApplicationName": "sandbox",
+    "Description": "My API Service",
+    "Environments": [{
+      "EnvironmentName": "test-env",
+      "Description": "Dev environment for API Service",
+      "SolutionStackName": "64bit Amazon Linux 2014.09 v1.0.8 running Node.js",
+      "OptionSettings": [
+        { "Namespace": "aws:autoscaling:asg", "OptionName": "Availability Zones", "Value": "Any 1" },
+        { "Namespace": "aws:autoscaling:asg", "OptionName": "Cooldown", "Value": 360 },
+        { "Namespace": "aws:autoscaling:asg", "OptionName": "MinSize", "Value": 1 },
+        { "Namespace": "aws:autoscaling:asg", "OptionName": "MaxSize", "Value": 1 },
+        { "Namespace": "aws:elasticbeanstalk:application:environment",
+          "OptionName": "NODE_ENV", "Value": "development" }
+      ]
+    }]
+  }]
+}
